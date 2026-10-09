@@ -3,43 +3,43 @@
 # JSBSim Bridge
 [![Build Tests](https://github.com/Auterion/px4-jsbsim-bridge/workflows/Build%20Tests/badge.svg?branch=master)](https://github.com/Auterion/px4-jsbsim-bridge/actions?query=workflow%3A%22Build+Tests%22)
 
-JSBSim bridge is a integration of the PX4 mavlink HIL interface to communicate with [jsbsim](https://github.com/JSBSim-Team/jsbsim)
+JSBSim bridge သည် [jsbsim](https://github.com/JSBSim-Team/jsbsim) နှင့် ဆက်သွယ်ဆောင်ရွက်ရန် PX4 mavlink HIL interface ကို ပေါင်းစပ်ထားသော (integration) တစ်ခု ဖြစ်သည်။
 
 
-## Installation (JSBSim)
-JSBSim rolling releases is available in the [release page](https://github.com/JSBSim-Team/jsbsim/releases) of JSBSim
+## ထည့်သွင်းခြင်း (JSBSim)
+JSBSim ၏ rolling releases များကို JSBSim ၏ [release page](https://github.com/JSBSim-Team/jsbsim/releases) တွင် ရယူနိုင်သည်။
 
-To have the visualization available, install flightgear.
+ရုပ်ပုံပြ (visualization) ကို အသုံးပြုလိုပါက flightgear ကို install လုပ်ပါ။
 
 ```
 apt install flightgear
 ```
 
-## Running the bridge
-When run from the Firmware, an example can be run with the following
+## bridge ကို run ခြင်း
+Firmware ထဲမှ run ချင်ပါက အောက်ပါအတိုင်း ဥပမာတစ်ခု run နိုင်သည်
 ```
 make px4_sitl jsbsim
 ```
 
-To run without the flightgear visualization,
+flightgear ရုပ်ပုံပြမပါဘဲ run ချင်ပါက၊
 ```
 HEADLESS=1 make px4_sitl jsbsim
 ```
 
-## Running the bridge with ROS
-Clone the `px4-jsbsim-bridge` package into your catkin workspace:
+## ROS နှင့်အတူ bridge ကို run ခြင်း
+`px4-jsbsim-bridge` package ကို သင့် catkin workspace ထဲသို့ clone လုပ်ပါ:
 ```
 cd <path_to_catkin_ws>/src
 git clone https://github.com/Auterion/px4-jsbsim-bridge.git
 ```
-Build the  `jsbsim_bridge` catkin package:
+`jsbsim_bridge` catkin package ကို build လုပ်ပါ:
 ```
 catkin build jsbsim_bridge
 ```
 :::note
-You must have already set MAVROS in your workspace (if not, follow the instructions in the [MAVROS installation guide](../ros/mavros_installation.md)).
+သင့် workspace တွင် MAVROS ကို အရင်ဆုံးထည့်သွင်းပြီးသား ဖြစ်ရပါမည် (မထည့်သွင်းရသေးပါက [MAVROS installation guide](../ros/mavros_installation.md) ရှိ ညွှန်ကြားချက်များအတိုင်း လုပ်ဆောင်ပါ)။
 :::
-To start JSBSim through ROS using the launch file as shown:
+JSBSim ကို ROS မှတစ်ဆင့် launch file ကို အသုံးပြု၍ အောက်ပါအတိုင်း စတင်ပါ:
 ```
 roslaunch jsbsim_bridge px4_jsbsim_bridge.launch
 ```
